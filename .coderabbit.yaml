@@ -3,7 +3,7 @@ language: "en-US"
 early_access: false
 
 reviews:
-  request_changes_workflow: false
+  request_changes_workflow: true
   
   high_level_summary: true
   
@@ -30,8 +30,6 @@ reviews:
       
       4. **Acceptable test locations**:
          - Same directory: Button.tsx → Button.test.tsx
-         - Tests directory: Button.tsx → __tests__/Button.test.tsx
-         - Mirrored structure: src/utils/helpers.js → tests/utils/helpers.test.js
       
       ❌ **BLOCK MERGE** if no corresponding tests are added.
       
