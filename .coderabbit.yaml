@@ -4,33 +4,44 @@ early_access: false
 
 reviews:
   request_changes_workflow: true
-  
   high_level_summary: true
   
   auto_review:
     enabled: true
     drafts: false
+  
+  # path_instructions should be inside reviews section
   path_instructions:
-  - path: "src/**/*.{js,ts,jsx,tsx}"
-    instructions: |
-      🚨 CRITICAL: Test Coverage Required! 🚨
-      
-      This file modification REQUIRES corresponding tests. Please ensure:
-      
-      1. **Add/update test files** for any changed functionality
-      2. **Test file naming conventions**:
-         - filename.test.{js,ts,jsx,tsx}
-         - filename.spec.{js,ts,jsx,tsx}
-         - __tests__/filename.{js,ts,jsx,tsx}
-      
-      3. **Required test coverage**:
-         - New functions/methods must have tests
-         - Modified logic must have updated tests
-         - Edge cases and error scenarios
-      
-      4. **Acceptable test locations**:
-         - Same directory: Button.tsx → Button.test.tsx
-      
-      ❌ **BLOCK MERGE** if no corresponding tests are added.
-      
-      If tests are not applicable, justify in PR description with "NO_TESTS_NEEDED:" prefix.
+    - path: "src/**/*.{js,ts,jsx,tsx}"
+      instructions: |
+        🚨 CRITICAL: Test Coverage Required! 🚨
+        
+        This file modification REQUIRES corresponding tests. Please ensure:
+        
+        1. **Add/update test files** for any changed functionality
+        2. **Test file naming conventions**:
+           - filename.test.{js,ts,jsx,tsx}
+           - filename.spec.{js,ts,jsx,tsx}
+           - __tests__/filename.{js,ts,jsx,tsx}
+        
+        3. **Required test coverage**:
+           - New functions/methods must have tests
+           - Modified logic must have updated tests
+           - Edge cases and error scenarios
+        
+        4. **Acceptable test locations**:
+           - Same directory: Button.tsx → Button.test.tsx
+        
+        ❌ **REQUEST CHANGES** if no corresponding tests are added.
+        
+        If tests are not applicable, justify in PR description with "NO_TESTS_NEEDED:" prefix.
+
+    - path: "lib/**/*.{js,ts,jsx,tsx}"
+      instructions: |
+        🧪 **Library Code - Tests Required**
+        This library file needs test coverage. Request changes if no tests provided.
+
+    - path: "components/**/*.{js,ts,jsx,tsx}"
+      instructions: |
+        ⚛️ **React Component - Tests Required**
+        Components need test coverage. Request changes without tests.
